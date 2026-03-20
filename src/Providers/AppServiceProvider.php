@@ -3,7 +3,6 @@
 namespace Laravel\Spark\Providers;
 
 use Laravel\Spark\Spark;
-use Laravel\Cashier\Cashier;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -103,6 +102,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        Cashier::ignoreMigrations();
+        //
     }
 }

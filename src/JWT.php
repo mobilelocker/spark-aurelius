@@ -4,6 +4,7 @@ namespace Laravel\Spark;
 
 use Illuminate\Support\Str;
 use Firebase\JWT\JWT as FirebaseJWT;
+use Firebase\JWT\Key;
 
 class JWT
 {
@@ -15,7 +16,7 @@ class JWT
      */
     public static function encode($token)
     {
-        return FirebaseJWT::encode($token, static::getKey());
+        return FirebaseJWT::encode($token, static::getKey(), 'HS256');
     }
 
     /**
@@ -26,7 +27,7 @@ class JWT
      */
     public static function decode($token)
     {
-        return (array) FirebaseJWT::decode($token, static::getKey(), ['HS256']);
+        return (array) FirebaseJWT::decode($token, new Key(static::getKey(), 'HS256'));
     }
 
     /**

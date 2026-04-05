@@ -75,7 +75,7 @@ class UpdateProfilePhoto implements Contract
      */
     protected function formatImage($file)
     {
-        return (string) $this->images->make($file->path())
-                            ->fit(300)->encode();
+        return (string) $this->images->read($file->path())
+                            ->cover(300, 300)->encode();
     }
 }

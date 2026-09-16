@@ -5,6 +5,7 @@ namespace Laravel\Spark\Providers;
 use Laravel\Spark\Spark;
 use Laravel\Spark\TokenGuard;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Drivers\Gd\Driver as GdDriver;
 use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
@@ -255,7 +256,7 @@ class SparkServiceProvider extends ServiceProvider
     protected function registerInterventionService()
     {
         $this->app->bind(ImageManager::class, function () {
-            return new ImageManager(['driver' => 'gd']);
+            return new ImageManager(GdDriver::class);
         });
     }
 

@@ -57,10 +57,10 @@ trait ManagesApiOptions
     /**
      * Get or set the abilities that may be assigned to tokens.
      *
-     * @param  array  $abilities
+     * @param  array|null  $abilities
      * @return array|void
      */
-    public static function tokensCan(array $abilities = null)
+    public static function tokensCan(?array $abilities = null)
     {
         if (is_null($abilities)) {
             return static::$tokensCan;
